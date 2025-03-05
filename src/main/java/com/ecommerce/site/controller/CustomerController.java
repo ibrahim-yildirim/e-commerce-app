@@ -27,13 +27,13 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("update")
     public ResponseEntity<CustomerEntity> updateCustomer(@RequestBody CustomerEntity customer) {
         return new ResponseEntity<>(customerService.updateCustomer(customer), HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<String> deleteCustomer(@RequestParam(value = "id") String customerId) {
+    public ResponseEntity<String> deleteCustomer(@PathVariable("id") String customerId) {
         customerService.deleteCustomer(customerId);
         return new ResponseEntity<>(Constants.Customer.DELETE_SUCCESS, HttpStatus.OK);
     }
