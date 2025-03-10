@@ -1,19 +1,35 @@
 package com.ecommerce.site.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "customer")
 public class CustomerEntity {
 
+    @Id
     private Long id;
-    private String name;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "phone")
     private String phone;
+
+    @Column(name = "email")
     private String email;
 
     public CustomerEntity() {
     }
 
-    public CustomerEntity(Long id, String name, String lastName, String phone, String email) {
+    public CustomerEntity(Long id, String firstName, String lastName, String phone, String email) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
@@ -27,12 +43,12 @@ public class CustomerEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
 
     public String getLastName() {

@@ -1,28 +1,18 @@
 package com.ecommerce.site.repository;
 
 import com.ecommerce.site.entity.CustomerEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class CustomerRepository {
+public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
-    public List<CustomerEntity> getAllCustomers() {
-        CustomerEntity customer1 = new CustomerEntity(1L, "John", "Doe", "123456789", "a@b.com");
-        CustomerEntity customer2 = new CustomerEntity(2L, "Jane", "Doe", "987654321", "c@d.com");
-        return List.of(customer1, customer2);
-    }
+    List<CustomerEntity> findAll();
 
-    public CustomerEntity saveCustomer(CustomerEntity customer) {
-        return customer;
-    }
+    CustomerEntity save(CustomerEntity customer);
 
-    public CustomerEntity updateCustomers(CustomerEntity customer) {
-        return customer;
-    }
+    void deleteById(Long customerId);
 
-    public void deleteCustomer(String customerId) {
-
-    }
 }

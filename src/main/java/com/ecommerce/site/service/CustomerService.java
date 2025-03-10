@@ -14,18 +14,18 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
     public CustomerEntity createCustomer(CustomerEntity customer) {
-        return customerRepository.saveCustomer(customer);
+        return customerRepository.save(customer);
     }
 
     public List<CustomerEntity> getAllCustomers() {
-        return customerRepository.getAllCustomers();
+        return customerRepository.findAll();
     }
 
     public CustomerEntity updateCustomer(CustomerEntity customer) {
-        return customerRepository.updateCustomers(customer);
+        return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(String customerId) {
-        customerRepository.deleteCustomer(customerId);
+    public void deleteCustomer(Long customerId) {
+        customerRepository.deleteById(customerId);
     }
 }

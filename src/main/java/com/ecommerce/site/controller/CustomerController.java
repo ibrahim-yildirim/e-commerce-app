@@ -33,7 +33,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<String> deleteCustomer(@PathVariable("id") String customerId) {
+    public ResponseEntity<String> deleteCustomer(@PathVariable("id") Long customerId) {
         customerService.deleteCustomer(customerId);
         return new ResponseEntity<>(Constants.Customer.DELETE_SUCCESS, HttpStatus.OK);
     }
