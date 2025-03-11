@@ -8,4 +8,10 @@ public class Constants {
 
     }
 
+    public static class Address {
+
+        public static final String DELETE_SUCCESS = "Address deleted successfully.";
+
+    }
+
 }
