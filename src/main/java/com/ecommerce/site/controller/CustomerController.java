@@ -2,6 +2,7 @@ package com.ecommerce.site.controller;
 
 import com.ecommerce.site.common.Constants;
 import com.ecommerce.site.entity.CustomerEntity;
+import com.ecommerce.site.entity.dto.CustomerEntityDTO;
 import com.ecommerce.site.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class CustomerController {
     CustomerService customerService;
 
     @PostMapping("create")
-    public ResponseEntity<CustomerEntity> createCustomer(@RequestBody CustomerEntity customer) {
+    public ResponseEntity<CustomerEntity> createCustomer(@RequestBody CustomerEntityDTO customer) {
         return new ResponseEntity<>(customerService.createCustomer(customer), HttpStatus.CREATED);
     }
 
@@ -27,9 +28,9 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
     }
 
-    @PutMapping("update")
-    public ResponseEntity<CustomerEntity> updateCustomer(@RequestBody CustomerEntity customer) {
-        return new ResponseEntity<>(customerService.updateCustomer(customer), HttpStatus.OK);
+    @PutMapping("update/{id}")
+    public ResponseEntity<CustomerEntity> updateCustomer(@RequestBody CustomerEntityDTO customer, @PathVariable("id") Long customerId) {
+        return new ResponseEntity<>(customerService.updateCustomer(customer, customerId), HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")
