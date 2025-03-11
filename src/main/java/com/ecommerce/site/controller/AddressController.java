@@ -2,6 +2,7 @@ package com.ecommerce.site.controller;
 
 import com.ecommerce.site.common.Constants;
 import com.ecommerce.site.entity.AddressEntity;
+import com.ecommerce.site.entity.dto.AddressEntityDTO;
 import com.ecommerce.site.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class AddressController {
     AddressService addressService;
 
     @PostMapping("create")
-    public ResponseEntity<AddressEntity> createAddress(@RequestBody AddressEntity address) {
+    public ResponseEntity<AddressEntity> createAddress(@RequestBody AddressEntityDTO address) {
         return new ResponseEntity<>(addressService.createAddress(address), HttpStatus.CREATED);
     }
 
@@ -27,9 +28,9 @@ public class AddressController {
         return new ResponseEntity<>(addressService.getAllAddresses(), HttpStatus.OK);
     }
 
-    @PutMapping("update")
-    public ResponseEntity<AddressEntity> updateAddress(@RequestBody AddressEntity address) {
-        return new ResponseEntity<>(addressService.updateAddress(address), HttpStatus.OK);
+    @PutMapping("update/{id}")
+    public ResponseEntity<AddressEntity> updateAddress(@RequestBody AddressEntityDTO address, @PathVariable("id") Long addressId) {
+        return new ResponseEntity<>(addressService.updateAddress(address, addressId), HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")

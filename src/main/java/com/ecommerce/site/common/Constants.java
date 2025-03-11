@@ -5,12 +5,14 @@ public class Constants {
     public static class Customer {
 
         public static final String DELETE_SUCCESS = "Customer deleted successfully.";
+        public static final String NOT_FOUND = "Customer entity not found.";
 
     }
 
     public static class Address {
 
         public static final String DELETE_SUCCESS = "Address deleted successfully.";
+        public static final String NOT_FOUND = "Address entity not found.";
 
     }
 
