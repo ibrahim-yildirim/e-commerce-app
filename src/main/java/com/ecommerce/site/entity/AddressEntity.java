@@ -1,18 +1,25 @@
 package com.ecommerce.site.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "address")
 public class AddressEntity extends AbstractEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "address_line")
     private String addressLine;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "zip_code")
     private String zipCode;
 
     public AddressEntity(Long id, String addressLine, String city, String country, String zipCode) {

@@ -1,18 +1,25 @@
 package com.ecommerce.site.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "customer_order")
 public class CustomerOrderEntity extends AbstractEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "order_status")
     private String orderStatus;
+
+    @Column(name = "payment_method")
     private String paymentMethod;
+
+    @Column(name = "customer_id")
     private Long customerId;
+
+    @Column(name = "total_amount")
     private Long totalAmount;
 
     public CustomerOrderEntity() {
