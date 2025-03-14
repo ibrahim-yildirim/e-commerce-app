@@ -1,6 +1,6 @@
 package com.ecommerce.site.service;
 
-import com.ecommerce.site.common.Constants;
+import com.ecommerce.site.common.constant.Address;
 import com.ecommerce.site.entity.AddressEntity;
 import com.ecommerce.site.entity.dto.AddressEntityDTO;
 import com.ecommerce.site.repository.AddressRepository;
@@ -37,7 +37,7 @@ public class AddressService {
                     addressEntity.setAddressLine(address.getAddressLine());
                     addressEntity.setZipCode(address.getZipCode());
                     return addressRepository.save(addressEntity);
-                }).orElseThrow(() -> new EntityNotFoundException(Constants.Address.NOT_FOUND));
+                }).orElseThrow(() -> new EntityNotFoundException(Address.NOT_FOUND));
     }
 
     public void deleteAddress(Long addressId) {

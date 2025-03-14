@@ -1,5 +1,6 @@
 package com.ecommerce.site.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -10,7 +11,10 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class AbstractEntity {
 
+    @JsonIgnore
     private LocalDateTime cdate;
+
+    @JsonIgnore
     private LocalDateTime udate;
 
     @PrePersist

@@ -1,6 +1,6 @@
 package com.ecommerce.site.controller;
 
-import com.ecommerce.site.common.Constants;
+import com.ecommerce.site.common.constant.Customer;
 import com.ecommerce.site.entity.CustomerEntity;
 import com.ecommerce.site.entity.dto.CustomerEntityDTO;
 import com.ecommerce.site.service.CustomerService;
@@ -36,7 +36,7 @@ public class CustomerController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteCustomer(@PathVariable("id") Long customerId) {
         customerService.deleteCustomer(customerId);
-        return new ResponseEntity<>(Constants.Customer.DELETE_SUCCESS, HttpStatus.OK);
+        return new ResponseEntity<>(Customer.DELETE_SUCCESS, HttpStatus.OK);
     }
 
 }

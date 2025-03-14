@@ -1,6 +1,6 @@
 package com.ecommerce.site.controller;
 
-import com.ecommerce.site.common.Constants;
+import com.ecommerce.site.common.constant.Address;
 import com.ecommerce.site.entity.AddressEntity;
 import com.ecommerce.site.entity.dto.AddressEntityDTO;
 import com.ecommerce.site.service.AddressService;
@@ -36,7 +36,7 @@ public class AddressController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteAddress(@PathVariable("id") Long addressId) {
         addressService.deleteAddress(addressId);
-        return new ResponseEntity<>(Constants.Address.DELETE_SUCCESS, HttpStatus.OK);
+        return new ResponseEntity<>(Address.DELETE_SUCCESS, HttpStatus.OK);
     }
 
 }
