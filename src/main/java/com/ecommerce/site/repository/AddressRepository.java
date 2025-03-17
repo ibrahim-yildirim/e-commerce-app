@@ -9,13 +9,4 @@ import java.util.Optional;
 
 @Repository
 public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
-
-    AddressEntity save(AddressEntity address);
-
-    List<AddressEntity> findAll();
-
-    void deleteById(Long addressId);
-
-    Optional<AddressEntity> findById(Long addressId);
-
 }
